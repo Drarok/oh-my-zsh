@@ -15,7 +15,7 @@ function in_svn() {
 
 function svn_get_branch_name {
     if [ $(in_svn) ]; then
-      svn info | grep '^URL:' | egrep -o '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$' | read SVN_URL
+      svn info | grep '^URL:' | egrep -o '(tags|branches|releases)/[^/]+|trunk' | egrep -o '[^/]+$' | read SVN_URL
       echo $SVN_URL
     fi
 }
