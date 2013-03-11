@@ -7,6 +7,9 @@ function svn_prompt_info {
         else
             _DISPLAY=$(svn_get_repo_name)
         fi
+
+        _DISPLAY="$_DISPLAY:$(svn_get_rev_nr)"
+
         echo "$ZSH_PROMPT_BASE_COLOR$ZSH_THEME_SVN_PROMPT_PREFIX\
 $ZSH_THEME_REPO_NAME_COLOR$_DISPLAY$ZSH_PROMPT_BASE_COLOR$ZSH_THEME_SVN_PROMPT_SUFFIX$ZSH_PROMPT_BASE_COLOR$(svn_dirty)$ZSH_PROMPT_BASE_COLOR"
         unset _DISPLAY
